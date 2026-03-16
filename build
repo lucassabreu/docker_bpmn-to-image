@@ -26,7 +26,7 @@ function build_missing_tags {
       echo 'needs building'
       sed -i "s/CLI_VERSION=.*/CLI_VERSION=${tag}/" Dockerfile
       git add Dockerfile && git commit -m "using version v${tag}"
-      git tag "v${tag}" && git push --tags
+      git tag "v${tag}" -m "v${tag}" && git push --tags
       git reset --hard $commit
     fi
   done
